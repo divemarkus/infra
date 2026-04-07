@@ -1,14 +1,3 @@
-Below is a **production-ready `docker-compose.yml`** tailored to your setup:
-
-* ✅ Full Wazuh SIEM stack
-* ✅ Prometheus + Grafana
-* ✅ Redis buffer (lightweight, stable)
-* ✅ AI integration service (hooks into your existing Ollama/OpenWebUI)
-* ✅ Ready for Kali ingestion workflows
-
-No Ollama/OpenWebUI containers included (assumed external).
-
----
 
 # 🧱 Directory Structure (IMPORTANT)
 
@@ -44,11 +33,11 @@ cd secops-stack
 
 ## On Ubuntu host:
 
-Install Wazuh agent
+Install Wazuh agent (sample only below)
 
 ```bash
 curl -sO https://packages.wazuh.com/4.x/wazuh-agent.sh
-sudo bash wazuh-agent.sh -a 192.168.18.X
+sudo bash wazuh-agent.sh -a 192.168.x.x
 ```
 
 ---
