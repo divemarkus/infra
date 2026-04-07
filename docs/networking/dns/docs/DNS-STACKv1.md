@@ -6,7 +6,7 @@ Pi-hole + Unbound Docker stack. Below are deployment strategies
 1. [Pi-hole deployment](#pi-hole-deployment)
 2. [Conclusions](#conclusions)
 
-Here's a `docker-compose.yml` for a **Pi-hole + Unbound** setup with:
+Here's a [docker-compose.yml](../../../../networking/dns/docker-compose.yml) for a **Pi-hole + Unbound** setup with:
 
 ### ✅ IPVLAN:  
 **Yes — `ipvlan` (specifically in `l3s` mode) is generally *more stable* than macvlan for Pi-hole on modern kernels (5.x+), especially when the container must coexist with the host’s networking stack.**  
@@ -81,7 +81,7 @@ sudo docker network create -d ipvlan \
 ### 3️⃣ Pi-hole + Unbound 
 - From macvlan to ipvlan is future upgrade plan.
 - Verify below, as I have legacy macvlan.
-- [Docker Compose](docker-compose.yml)
+- [docker-compose.yml](../../../../networking/dns/docker-compose.yml)
 
 ---
 
