@@ -1,0 +1,164 @@
+version: "3.8"
+
+networks:
+  siem_net:
+  monitoring_net:
+  ai_net:
+
+volumes:
+  wazuh_data:
+  opensearch_data:
+  prometheus_data:
+  grafana_data:
+
+services:
+
+  ############################
+  # 🔐 WAZUH MANAGER
+  ############################
+  wazuh.manager:
+    image: wazuh/wazuh-manager:4.7.3
+    container_name: wazuh.manager
+    restart: unless-stopped
+    networks:
+      - siem_net
+    ports:
+      - "1514:1514/udp"
+      - "1515:1515"
+      - "55000:55000"
+    volumes:
+      - wazuh_data:/var/ossec/data
+
+  ############################
+  # 🔍 WAZUH INDEXER (REPLACES OPENSEARCH)
+  ############################
+  wazuh.indexer:
+    image: wazuh/wazuh-indexer:4.7.3
+    container_name: wazuh.indexer
+    restart: unless-stopped
+    networks:
+      - siem_net
+    environment:
+      - "discovery.type=single-node"
+      - "cluster.name=wazuh-cluster"
+      - "node.name=wazuh-indexer-1"
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+    volumes:
+      - opensearch_data:/var/lib/wazuh-indexer
+    ports:
+      - "9200:9200"
+
+  ############################
+  # 📊 WAZUH DASHBOARD
+  ############################
+  wazuh.dashboard:
+    image: wazuh/wazuh-dashboard:4.7.3
+    container_name: wazuh.dashboard
+    restart: unless-stopped
+    networks:
+      - siem_net
+    ports:
+      - "5601:5601"
+    environment:
+      - OPENSEARCH_HOSTS=https://wazuh.indexer:9200
+      - OPENSEARCH_USERNAME=admin
+      - OPENSEARCH_PASSWORD=admin
+    depends_on:
+      - wazuh.indexer
+    command: >
+      sh -c "sleep 60 && /entrypoint.sh"
+
+  ############################
+  # 📊 PROMETHEUS
+  ############################
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    networks:
+      - monitoring_net
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+
+  ############################
+  # 📈 NODE EXPORTER
+  ############################
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    networks:
+      - monitoring_net
+    ports:
+      - "9100:9100"
+
+  ############################
+  # 📦 CADVISOR
+  ############################
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    restart: unless-stopped
+    networks:
+      - monitoring_net
+    ports:
+      - "8081:8080"
+    volumes:
+      - "/:/rootfs:ro"
+      - "/var/run:/var/run:ro"
+      - "/sys:/sys:ro"
+      - "/var/lib/docker/:/var/lib/docker:ro"
+
+  ############################
+  # 📊 GRAFANA
+  ############################
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    networks:
+      - monitoring_net
+      - siem_net
+    ports:
+      - "3002:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  ############################
+  # 📦 REDIS BUFFER
+  ############################
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - siem_net
+      - ai_net
+    ports:
+      - "6379:6379"
+
+  ############################
+  # 🧠 AI ANALYZER
+  ############################
+  ai-analyzer:
+    image: python:3.11-slim
+    container_name: ai-analyzer
+    restart: unless-stopped
+    networks:
+      - ai_net
+      - siem_net
+    volumes:
+      - ./ai:/app
+    working_dir: /app
+    command: >
+      sh -c "pip install fastapi uvicorn requests redis && uvicorn main:app --host 0.0.0.0 --port 8000"
+    environment:
+      OLLAMA_API: "http://ollama:11434"
+      REDIS_HOST: "redis"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
