@@ -1,7 +1,7 @@
 
 # DNS Configuration Guide
 - [Links to subtopics](docs/)
-- [Self-hosted DNS deployment](./../../../networking/dns/DNS-STACKv1.md)
+- [Self-hosted DNS deployment](./../../../networking/dns/README.md)
 - [BIND Tools](docs/BIND-TOOLS.md)
 - [Benchmark dig 03082026](docs/benchmark-dig-v03182026.md)
 
