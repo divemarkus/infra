@@ -211,35 +211,19 @@ Staff
 
 Guests
 
-Kids
-
-Parents
-
 IoT
-
-Cameras
 
 Pool House
 
-Printers
+Printers / Media / Servers
 
-Media
-
-Servers
-
-Management
-
-Infrastructure
-
-VPN
+Management / Infrastructure
 
 Voice
 
-Gaming
-
 Work Devices
 
-Security System
+Security System / Cameras
 ```
 
 This is how I'd build it.
