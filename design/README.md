@@ -1,6 +1,6 @@
 Excellent. Given your background, I'll treat this as an enterprise campus design scaled for residential use rather than a consumer network.
 
-A 4,000 sq ft main house plus an 800 sq ft pool house, 12–15 users, staff, dual ISPs, and an all-Fortinet stack is a very reasonable deployment.
+A 5,000 sq ft (465 sq m) main house plus an 800 sq ft pool house, 12–15 users, staff, dual ISPs, and an all-Fortinet stack is a very reasonable deployment.
 
 ## First Design Goals
 
@@ -59,10 +59,10 @@ Example
 
 ```
 PLDT
-1000/1000
+400/400
 
 Converge
-600/600
+400/400
 ```
 
 ---
@@ -78,7 +78,7 @@ Do you have
 * Fiber
 * Combination
 
-How many cable runs approximately?
+How many cable runs approximately? Or very minimal cabling?
 
 Example
 
