@@ -324,7 +324,7 @@ Without sizing every detail yet, my starting point would be:
 
 | Layer            | Recommendation                                                       | Why                                                                                           |
 | ---------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Security Gateway | FortiGate 50G (or HA pair of 50Gs)                                   | Strong performance for dual-gigabit Internet, full UTM features, SD-WAN, and room for growth. |
+| Security Gateway | [FortiGate 50G](https://www.amazon.com/Fortinet-FortiGate-50G-Firewall-Offices-Ethernet/dp/B0F3K3YTJ5?th=1) (or HA pair of 50Gs)                                   | Strong performance for dual-gigabit Internet, full UTM features, SD-WAN, and room for growth. |
 | Core Switching   | FortiSwitch 248E-FPOE or 248F-FPOE                                   | 48 PoE ports provide ample capacity for APs, cameras, and wired devices.                      |
 | Edge Switching   | Optional FortiSwitch 124F-PoE in the pool house                      | Reduces long copper runs and provides local PoE.                                              |
 | Wireless         | 4–6 FortiAPs (indoor) plus 1 outdoor-rated FortiAP for the pool area | Supports seamless roaming and good coverage across both buildings.                            |
