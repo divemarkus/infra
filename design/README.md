@@ -345,3 +345,47 @@ Once you answer the questions above, I'll produce:
 7. Equipment sizing with justification.
 8. Rack layout, patch panel organization, and cable labeling scheme.
 9. A phased implementation and migration plan.
+
+---
+
+# Additional details
+
+Here is a breakdown of what that string of specifications means, piece by piece:
+
+### 1. Tri-Band
+
+The router or device broadcasts on three separate wireless frequency bands to reduce network congestion and handle more traffic:
+
+* **2.4 GHz:** Slower speeds but longer range and better wall penetration.
+* **5 GHz:** Faster speeds with moderate range.
+* **6 GHz:** Extremely fast speeds and virtually no interference, though with shorter range.
+
+### 2. Wi-Fi 7 & IEEE 802.11be
+
+**Wi-Fi 7** is the commercial name for the **802.11be** wireless standard. It is the latest generation of Wi-Fi technology, designed for ultra-low latency and massive throughput using features like 320 MHz channel widths and Multi-Link Operation (MLO), which lets devices connect to multiple bands simultaneously.
+
+### 3. IEEE 802.11a/b/g/n/ac/ax/be
+
+This lists backwards compatibility. The device supports every major Wi-Fi generation that came before it:
+
+* **b/a/g:** Wi-Fi 1, 2, and 3 (Legacy protocols).
+* **n:** Wi-Fi 4 (Introduced 2.4/5 GHz dual-band).
+* **ac:** Wi-Fi 5 (High-speed 5 GHz).
+* **ax:** Wi-Fi 6 / 6E (Introduced the 6 GHz band and better efficiency).
+* **be:** Wi-Fi 7 (The current standard).
+
+### 4. Letters /e/h/i/j/k/r/v
+
+These lowercase letters represent specific amendment protocols that handle background network management, security, and roaming:
+
+* **e:** Quality of Service (QoS) management to prioritize traffic like gaming or video calls.
+* **h:** Spectrum and power management to prevent interference with radar systems.
+* **i:** Enhanced security protocols (the foundation for WPA2/WPA3).
+* **j:** Japanese wireless frequency adaptations.
+* **k:** Radio resource measurement, helping devices find the best available access point.
+* **r:** Fast Roaming (FT), allowing seamless transition from one access point to another without dropping connection.
+* **v:** Network management, allowing the router to guide devices to the most optimal band or access point.
+
+### 5. 9.32 Gbit/s
+
+This is the **maximum theoretical bandwidth** across all combined bands, representing a top speed of 9.32 Gigabits per second. Real-world speeds will be lower due to distance, physical obstacles, and overhead, but it indicates massive capacity for data-heavy tasks like local network transfers and high-speed internet connections.
