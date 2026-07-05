@@ -389,3 +389,21 @@ These lowercase letters represent specific amendment protocols that handle backg
 ### 5. 9.32 Gbit/s
 
 This is the **maximum theoretical bandwidth** across all combined bands, representing a top speed of 9.32 Gigabits per second. Real-world speeds will be lower due to distance, physical obstacles, and overhead, but it indicates massive capacity for data-heavy tasks like local network transfers and high-speed internet connections.
+
+---
+
+# Wifi Recommendation
+
+If your goal is to reduce the AP count from six to four, I think this is the sweet spot:
+
+3 × FortiAP 431G
+1 × FortiAP U231G
+
+This could work well if the main house has a relatively open floor plan and no large RF barriers.
+
+However, if the home has thick concrete walls, multiple wings, or two concrete floors, I'd instead choose:
+
+4 × FortiAP 431G
+1 × FortiAP U231G
+
+That gives you excellent coverage while still reducing the number of indoor APs compared with the 231G design.
