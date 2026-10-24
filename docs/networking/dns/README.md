@@ -134,7 +134,7 @@ Pi-hole returns a valid DNS answer when it blocks a domain. The client receives 
 
 | Pi-hole outcome | DNS response | Expected client behavior |
 | --- | --- | --- |
-| Domain allowed | Valid answer | Uses the answer; Pi-hole may query upstream if needed |
+| Domain allowed | Valid answer | Uses the answer; Pi-hole is recursive |
 | Domain blocked | 0.0.0.0 or NXDOMAIN, depending on your blocking mode | Accepts the response; normally no fallback |
 | Pi-hole unavailable | Timeout or connection failure | May try the FortiGate secondary DNS |
 | Upstream resolution fails | Depends on Pi-hole's response and client behavior | May receive an error; secondary DNS use is not guaranteed |
