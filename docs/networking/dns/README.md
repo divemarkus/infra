@@ -156,6 +156,9 @@ This gives you the intended behavior in normal operation:
 ### IoT Devices
 - You can lock-down some of your IoT's if they only require very specific DNS queries
 
+<img width="1981" height="1283" alt="chrome_cnRM6vDNNo" src="https://github.com/user-attachments/assets/2329cac3-95f8-44d3-b8bf-28a61d78b268" />
+
+
 ## Resources & Documentation
 
 - **Pi-hole Official Docs**: [Documentation Link](https://docs.pi-hole.net/)
