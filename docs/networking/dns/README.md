@@ -169,7 +169,6 @@ This gives you the intended behavior in normal operation:
 - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
 - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt
 - https://hosts.tweedge.net/malicious.txt
-- https://urlhaus.abuse.ch/downloads/hostfile
 
 ---
 
