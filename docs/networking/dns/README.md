@@ -140,12 +140,9 @@ Pi-hole returns a valid DNS answer when it blocks a domain. The client receives 
 | Pi-hole unavailable | Valid answer | Upstream Fortigate to OpenDNS |
 
 This gives you the intended behavior in normal operation:
-- Pi-hole is authoritative for the client's initial DNS request path—though technically it is a recursive resolver, not necessarily authoritative for your zones.
-- OpenDNS provides upstream visibility for queries forwarded to it, while FortiGate DNS can provide a secondary route.
+- Pi-hole is authoritative for the client's initial DNS request path—though technically it is a recursive resolver.
 - FortiGate firewall policies continue enforcing network access independently of whether DNS filtering succeeds.
-One nuance: a valid blocking response does not prevent every possible client from querying another resolver independently, but it normally prevents resolver failover for that particular query.
-
-Your year of observed behavior is consistent with this design.
+- My year's of observed behavior is consistent with this design.
 
 ### Monitoring & Maintenance
 - **Logs**: Monitor Pi-hole logs for unusual activity to ensure network security.
