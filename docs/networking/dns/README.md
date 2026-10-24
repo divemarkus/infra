@@ -144,6 +144,11 @@ This gives you the intended behavior in normal operation:
 - FortiGate firewall policies continue enforcing network access independently of whether DNS filtering succeeds.
 - My year's of observed behavior is consistent with this design.
 
+## Infographic Diagram 
+
+<img width="1312" height="1199" alt="GTown_DNS_Architecture" src="https://github.com/user-attachments/assets/3e57fb2c-ef18-4fce-8046-6f47e0e57d8b" />
+
+
 ### Monitoring & Maintenance
 - **Logs**: Monitor Pi-hole logs for unusual activity to ensure network security.
 - **Updates**: Keep Pi-hole and related software updated to benefit from the latest features and security patches.
