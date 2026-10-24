@@ -164,6 +164,12 @@ This gives you the intended behavior in normal operation:
 - **Pi-hole Official Docs**: [Documentation Link](https://docs.pi-hole.net/)
 - **OpenDNS Consumer**: [https://www.opendns.com/home-internet-security/](https://www.opendns.com/home-internet-security/)
 - **Unbound DNS Documentation**: [https://github.com/NLnetLabs/unbound](https://github.com/NLnetLabs/unbound)
+- Pi-hole Subscriptions:
+- https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+- https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
+- https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt
+- https://hosts.tweedge.net/malicious.txt
+- https://urlhaus.abuse.ch/downloads/hostfile
 
 ---
 
